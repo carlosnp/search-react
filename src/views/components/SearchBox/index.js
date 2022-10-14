@@ -6,25 +6,18 @@ export default function SearchBox({onSearch, onClose}) {
     const [searchText, setSearchText] = useState('');
     /** Cerrar buscador */
     const handleClose = (event) => {
+        // Limpiamos el campo de texto
         setSearchText("");
+        // Actualizamos onClose
         onClose();
+        // Evitamos que reconstruya la pagina
         event.preventDefault();
     };
     /** Buscar elementos */
-    const handleSearch = (event) => {
-        onSearch();
-        console.log('text', searchText);
-        event.preventDefault();
-    }
-    /**
-     * Obtiene los datos del formulario
-     * @param {*} event 
-     */
-    const handleSubmit = (event) => {
-        const data = new FormData(event.target);
-        /** Datos del formulario */
-        const formObject = Object.fromEntries(data.entries());
-        console.log('formObject', formObject);
+    const handleSearch = (event, text) => {
+        // Si existe el texto, actualizamos onSearch
+        if (text) { onSearch(text) }
+        // Evitamos que reconstruya la pagina
         event.preventDefault();
     }
     return (
@@ -38,7 +31,7 @@ export default function SearchBox({onSearch, onClose}) {
                         onChange={({target: { value }})=> setSearchText(value)}
                     />
                 </label>
-                <button onClick={handleSearch}>Buscar</button>
+                <button onClick={(event) => handleSearch(event, searchText)}>Buscar</button>
                 <button onClick={handleClose}>Cerrar</button>
             </div>
             <div>{searchText}</div>
