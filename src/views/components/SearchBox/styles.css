@@ -1,0 +1,13 @@
+.search-box {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 1px solid red;
+}
+.search-box-form {
+    border: 1px solid blue;
+    display: flex;
+    flex-direction: row;
+}
