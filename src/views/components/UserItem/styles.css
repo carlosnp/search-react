@@ -6,3 +6,13 @@
     background-color: #E8E7E7;
     margin-top: 16px;
 }
+.user-detail {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:space-between;
+    align-items: center;
+    padding: 1rem;
+}
+.username {
+    color: grey;
+}

@@ -27,7 +27,8 @@ export default function Search() {
     // Filtrar usuarios
     const handleSearchClick = (text)=> {
         if (!isAtTop) { setIsAtTop(true); }
-        if (data?.length) {
+        if (!text) { setResults([]); }
+        if (data?.length && text) {
             const filtered = data.filter(value =>
                 (
                     findProperty(value.name, text) ||
@@ -42,13 +43,18 @@ export default function Search() {
     return (
         <div className={`search ${isAtTop ? "search--top": "seacrh--center"}`}>
             <SearchBox
-                // Variables para recibir del hijo 
+                // Recibimos si le dieron click al boton buscar
                 onSearch={handleSearchClick} 
+                // Recibimos si le dieron click al boton cerrar
                 onClose={handleCloseClick}
+                // Indicamos si se muestra el boton de cerrar
+                isSearching={isAtTop}
             />
             <SearchResults
                 // Le pasamos la lista al hijo
                 results={results}
+                // Le indicamos si se inicio la busqueda
+                isSearching={isAtTop}
             />
         </div>
     );

@@ -1,12 +1,16 @@
 // estilos
 import "./styles.css"
-export default function UserItem({user}) {
+export default function UserItem({name, username, email, phone}) {
     return (
         <div className="user-data">
-            <div>{user.name}</div>
-            <div>{user.email}</div>
-            <div>{user.phone}</div>
-            <div>{user.username}</div>
+            <div className="user-detail">
+                <div>{name}</div>
+                <div className="username">{username}</div>
+            </div>
+            <div className="user-detail">
+                <div>Correo: {email}</div>
+                <div className="username">Telefono: {phone}</div>
+            </div>
         </div>
     );
 }
