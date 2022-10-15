@@ -19,6 +19,12 @@ export default function SearchBox({onSearch, onClose, isSearching}) {
         event.preventDefault();
         onSearch(text) 
     }
+    const handleKeyPress = (event) => {
+        if (event.code === "Enter" || event.charCode === 13) {
+            const value = event.target.value;
+            onSearch(value);
+        }
+    }
     return (
         <div className={`search-box ${isSearching ? 'sticky' :'normal'}`}>
             <h2 className="search-box-title">Buscador de personal</h2>
@@ -28,17 +34,19 @@ export default function SearchBox({onSearch, onClose, isSearching}) {
                         className="search-box-input"
                         value={searchText || ''}
                         onChange={({target: { value }})=> setSearchText(value)}
+                        onKeyPress={(event)=> handleKeyPress(event)}
                     />
                 </label>
                 <button
                     onClick={(event) => handleSearch(event, searchText)}
                     disabled={!searchText.length}
+                    className="search-button"
                 >Buscar</button>
                 { 
                     isSearching &&  
                     <button 
                         onClick={handleClose}
-                        disabled={!searchText.length}
+                        className="search-button"
                     >Cerrar</button>
                 }
             </div>

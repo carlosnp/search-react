@@ -5,15 +5,27 @@
     align-items: center;
     flex-direction: column;
 }
-.search-box-form {
-    border: 1px solid blue;
-    display: flex;
-    flex-direction: row;
-}
-.sticky {
+.search-box.sticky {
     position: sticky;
     top: 0;
 }
-.normal {
+.search-box.normal {
     position: initial;
+}
+
+.search-box-form {
+    display: flex;
+    flex-direction: row;
+}
+.search-box-input {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    padding: 0.4rem;
+    margin-right: 0.2rem;
+}
+.search-button {
+    margin-right: 0.2rem;
+    font-size: 1.5rem;
+    line-height: 2rem;
+    padding: 0.4rem 1rem;
 }
