@@ -34,7 +34,6 @@ export default function SearchBox({onSearch, onClose}) {
                 <button onClick={(event) => handleSearch(event, searchText)}>Buscar</button>
                 <button onClick={handleClose}>Cerrar</button>
             </div>
-            <div>{searchText}</div>
         </div>
     );
 }

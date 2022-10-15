@@ -1,6 +1,10 @@
 import { useState } from "react";
+// Componentes
 import SearchBox from "../../components/SearchBox"
+import SearchResults from "../../components/SearchResults";
+// estilos
 import "./styles.css"
+// Data
 import data from "../../../data/users.json"
 /**
  * Componente Search
@@ -41,6 +45,10 @@ export default function Search() {
                 // Variables para recibir del hijo 
                 onSearch={handleSearchClick} 
                 onClose={handleCloseClick}
+            />
+            <SearchResults
+                // Le pasamos la lista al hijo
+                results={results}
             />
         </div>
     );

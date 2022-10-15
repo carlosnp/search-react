@@ -1,0 +1,8 @@
+.user-data {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #E8E7E7;
+    margin-top: 16px;
+}
