@@ -29,6 +29,7 @@ export default function Search() {
         if (!isAtTop) { setIsAtTop(true); }
         if (!text) { setResults([]); }
         if (data?.length && text) {
+            // Filtramos la lista por nombre, correo, telefono y username
             const filtered = data.filter(value =>
                 (
                     findProperty(value.name, text) ||
@@ -37,7 +38,11 @@ export default function Search() {
                     findProperty(value.username, text)
                 )
             )
-            setResults(filtered)
+            // Ordenamos la lista por nombre
+            const order = filtered.sort(function(a,b){
+                return a.name.localeCompare(b.name);
+            })
+            setResults(order)
         }
     };
     return (
